@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock title %}
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'index.css' %}">
+{% endblock %}
+{% block body %}
+
+<div id="head">
+<img src="https://images.static-collegedunia.com/public/college_data/images/logos/1599034979logo.gif" alt="" id="logo">
+    Virendra Swarup Institue Of Computer Studies
+</div>
+<div id="contain">
+<div id="image"></div>
+<div id="form">
+<form method="POST" action="/login">
+{% csrf_token %}
+<div id="account-circle">
+<img src="{% static 'account-circle.png' %}" alt="account circle" class="material-icons">
+</div>
+{% if error %}
+<p class='validation'>{{error}}</p>
+{% endif %}
+<input type="text" class="input" placeholder="User ID" name="user_id" value={{username}}>
+<input type="password" class="input" placeholder="Password" name="password" required>
+<button id="login-btn" type="submit">Login</button>
+<p id="forget-pass">Forget password? <a href="">Click here</a></p>
+<p id="new-registration">New registration? <a href="/registration">Click here</a></p>
+</form>
+</div>
+</div>
+{% endblock body %}

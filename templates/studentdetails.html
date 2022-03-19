@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block title %}Student Details{% endblock title %}
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'studentdetails.css' %}">
+{% endblock link %}
+{% block body %}
+<div id="contain">
+<div id="welcome">
+<div id="div-80">
+<span style="position:relative;left:12%">
+Welcome {{name}}
+</span>
+</div>
+<div id='div-20'>
+<a href="\" id='logout'>Logout</a>
+</div>
+</div>
+<hr style="clear:both ; margin:20px auto">
+<div id="welcome">
+<div id="div-80">
+<span style="position:relative;left:12%">
+Add new student
+</span>
+</div>
+<div id='div-20' style="text-align:left">
+<a href="/show_attendence/{{name}}" id='check-record'>Check record</a>
+</div>
+</div>
+<form method="POST" action="\addstudent">
+{% csrf_token %}
+<div id="add-student">
+<input type="text" placeholder="Student name" name='s-name' required id='s-name'>
+<input type="text" placeholder="Student Roll No" name='s-rollno' required id='s-rollno'>
+<select name="course" id="course">
+<option value="course">Course</option>
+<option value="BCA" id="">BCA</option>
+<option value="BBA" id="">BBA</option>
+<option value="MCA" id="">MCA</option>
+<option value="MBA" id="">MBA</option>
+</select>
+<select name="semester" id="semester">
+<option value="semester">Semester</option>
+<option value="1" id="">1</option>
+<option value="2" id="">2</option>
+<option value="3" id="">3</option>
+<option value="4" id="">4</option>
+<option value="5" id="">5</option>
+<option value="6" id="">6</option>
+</select>
+<select name="branch" id="branch">
+<option value="Branch">Branch</option>
+<option value="Computer Science" id="">Computer Science</option>
+<option value="Computer Application" id="">Computer Application</option>
+<option value="Web Development" id="">Web Development</option>
+<option value="Software Engineering" id="">Software Engineering</option>
+</select>
+</div>
+<div id="add-btn-div">
+<input type="submit" class="add-btn" value='Add Student'>
+</div>
+</form>
+<hr style="margin:20px auto">
+<div id="mark-attendence">Mark Attendence {{date}}</div>
+
+{% if stud %}
+<form action="/mark_attendence/{{name}}/{{date}}" method='POST'>
+{% csrf_token %} 
+		<table style="border:1px solid black;width:100%;border-collapse:collapse;">
+			<tr>
+				<th style="border:1px solid;padding:2px;font-weight:bolder">S.NO</th>
+				<th style="border:1px solid;padding:2px;font-weight:bolder">Name</th>
+				<th style="border:1px solid;padding:2px;font-weight:bolder">Roll NO</th>
+				<th style="border:1px solid;padding:2px;font-weight:bolder">Course</th>
+				<th style="border:1px solid;padding:2px;font-weight:bolder">Semester</th>
+				<th style="border:1px solid;padding:2px;font-weight:bolder">Branch</th>
+				<th style="border:1px solid;padding:2px;font-weight:bolder">Attendence</th>
+			</tr>
+		{% for i in stud %}
+			<tr>
+				<td style="border:1px solid;padding:2px;font-weight:bold">{{i.sno}}</td>
+				<td style="border:1px solid;padding:2px;font-weight:bold">{{i.name}}</td>
+				<td style="border:1px solid;padding:2px;font-weight:bold">{{i.rollno}}</td>
+				<td style="border:1px solid;padding:2px;font-weight:bold">{{i.course}}</td>
+				<td style="border:1px solid;padding:2px;font-weight:bold">{{i.semester}}</td>
+				<td style="border:1px solid;padding:2px;font-weight:bold">{{i.branch}}</td>
+				{% if show == 'show'%}
+				{% for j in attendence %}
+				{% if i.rollno == j.rollno %}
+				{% if j.status == 'Present' %}
+				<td style="border:1px solid;padding:2px;font-weight:bold" id="present">{{j.status}}</td>
+				{% else %}
+				<td style="border:1px solid;padding:2px;font-weight:bold" id="absent">{{j.status}}</td>
+				{% endif %}
+				{% endif %}
+				{% endfor %}
+				{% else %}
+				<td style="border:1px solid;padding:2px;font-weight:bold">
+				
+				<input type="radio" name="status{{i.sno}}" value="Present" required><span style="color:green;font-size:20px">Present</span> 
+				<input type="radio" name="status{{i.sno}}" value="Absent" required style="margin-left:15px"><span style="color:red;font-size:20px">Absent</span> 
+				</td>
+				{% endif %}
+			</tr>
+		{% endfor %}
+		</table>
+		{% if show != 'show' %}
+		<input type="submit" name="" class="add-btn" style="margin-top:20px;margin-bottom:50px">
+		{% endif %}
+		</form>
+	{% endif %}
+
+
+</div>
+
+{% endblock body %}

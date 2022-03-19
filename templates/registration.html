@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Faculty Registration{% endblock title %}
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'registration.css' %}">
+{% endblock link %}
+{% block body %}
+<form method="POST" action="/submit" id="registration-form">
+{% csrf_token %}
+<div id="label">Faculty Registration</div>
+<input type="text" placeholder="Full Name" name="name" class="registration-field" value="{{value.name}}" required>
+{% if error.name %}<p class="validation">{{error.name}}</p>{% endif %}
+<input type="text" placeholder="Phone NO." name="phone-no" class="registration-field" value="{{value.phone_no}}" required>
+{% if error.phone_no %}<p class="validation">{{error.phone_no}}</p>{% endif %}
+<input type="date"  name="dob" class="registration-field" value="{{value.dob}}" required>
+{% if error.dob %}<p class="validation">{{error.dob}}</p>{% endif %}
+<input type="text" placeholder="Qualification" name="qualification" class="registration-field" value="{{value.qualification}}" required>
+{% if error.qualification %}<p class="validation">{{error.qualification}}</p>{% endif %}
+<input type="text" placeholder="Username" name="faculty-username" class="registration-field" required>
+{% if error.faculty_username %}<p class="validation">{{error.faculty_username}}</p>{% endif %}
+{% if error.check_username %}<p class="validation">{{error.check_username}}</p>{% endif %}
+<input type="password" placeholder="Password" name="faculty-password" class="registration-field" required>
+{% if error.faculty_password %}<p class="validation">{{error.faculty_password}}</p>{% endif %}
+<input type="submit" value="Register" id="submit">
+</form>
+<!--<button id="back" onclick="window.location.href='/';">Back</button>    alternate method-->
+<a href="/"><button id="back">Back</button></a>
+{% endblock body %}

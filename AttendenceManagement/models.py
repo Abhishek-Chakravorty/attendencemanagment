@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Faculty_Registration(models.Model):
     name = models.CharField(max_length=50)
-    phone = models.IntegerField()
+    phone = models.CharField(max_length=50)
     dob = models.DateField(auto_now=False, auto_now_add=False)
     qual = models.CharField(max_length=50)
     user_name = models.CharField(max_length=50)

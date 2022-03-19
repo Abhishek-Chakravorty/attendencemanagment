@@ -1,0 +1,113 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+#contain{
+    padding: 0 20px;
+}
+#div-80{
+    float:left;
+    text-align: center;
+    width:80%;
+    overflow: auto;
+    padding:20px;
+    font-size: 25px;
+    font-family: 'Hammersmith One', sans-serif;
+    text-transform: capitalize;
+}
+#div-20 {
+    float: left;
+    width: 20%;
+    overflow: auto;
+    padding: 20px;
+    text-align: center;
+}
+#logout{
+    padding:5px 10px;
+    text-decoration: none;
+    color:white;
+    background:blue;
+}
+#check-record{
+    padding:5px 10px;
+    text-decoration: none;
+    color:white;
+    background:green;
+}
+#welcome{
+    overflow: auto;
+}
+#add-student{
+    display:grid;
+    grid-template-areas: 
+    's-name s-name s-rollno'
+    'course semester branch';
+    grid-gap: 10px;
+}
+#s-name{
+    grid-area: s-name;
+    height:40px;
+    padding-left:10px;
+}
+#s-rollno{
+    grid-area: s-rollno;
+    height:40px;
+    padding-left:10px;
+}
+#course{
+    grid-area:course ;
+    height:40px;
+    padding-left:10px;
+}
+#semester{
+    grid-area:semester ;
+    height:40px;
+    padding-left:10px;
+}
+#branch{
+    grid-area:branch ;
+    height:40px;
+    padding-left:10px;
+}
+#add-btn-div {
+    text-align: center;
+    margin-top: 25px;
+}
+.add-btn {
+    background: green;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    width: 30%;
+    display: block;
+    margin: auto;
+    cursor:pointer;
+}
+#mark-attendence{
+    text-align:center;
+    font-size: 25px;
+    font-family: 'Hammersmith One', sans-serif;
+    margin-bottom: 10px;
+}
+#present{
+    color: white;
+    background: green;
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 20px;
+}
+#absent{
+    color: white;
+    background: red;
+    text-decoration: none;
+    padding: 5px 8px;
+    font-size: 20px;
+}
+td,th{
+    height:50px;
+    text-align: center;
+}
+th{
+    font-size: 20px;
+}

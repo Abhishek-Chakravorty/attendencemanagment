@@ -1,0 +1,56 @@
+*{
+    padding:0;
+    margin:0;
+}
+#contain{
+    padding: 0 20px;
+}
+td,th{
+    height:50px;
+    text-align: center;
+}
+th{
+    font-size: 20px;
+}
+#welcome{
+    overflow: auto;
+}
+#logout{
+    padding:5px 10px;
+    text-decoration: none;
+    color:white;
+    background:blue;
+}
+#div-80{
+    float:left;
+    text-align: center;
+    width:73%;
+    overflow: auto;
+    padding:20px;
+    font-size: 25px;
+    font-family: 'Hammersmith One', sans-serif;
+    text-transform: capitalize;
+}
+#div-20 {
+    float: left;
+    width: 20%;
+    overflow: auto;
+    padding: 20px;
+    text-align: center;
+}
+#present{
+    color: white;
+    background: green;
+    text-decoration: none;
+    padding: 7px 15px;
+    font-size: 20px;
+    border-radius: 20px;
+}
+#absent{
+    color: white;
+    background: red;
+    text-decoration: none;
+    padding: 7px 18px;
+    font-size: 20px;
+    border-radius: 20px;
+}

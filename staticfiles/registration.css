@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#registration-form {
+    width: 50%;
+    margin: 20px auto;
+}
+#label {
+    text-align: center;
+    font-size: 26px;
+    font-family: 'Hammersmith One', sans-serif;
+    margin-bottom: 15px;
+}
+.registration-field {
+    width: 100%;
+    margin: 10px 0;
+    height: 40px;
+    padding-left: 10px;
+}
+#submit {
+    display: block;
+    width: 80%;
+    margin: auto;
+    height: 35px;
+    background: green;
+    color: white;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#back {
+    display: block;
+    padding: 8px 10px;
+    margin: 10px auto;
+    background: blue;
+    color: white;
+    cursor: pointer;
+}
+.validation{
+    color:red;
+}

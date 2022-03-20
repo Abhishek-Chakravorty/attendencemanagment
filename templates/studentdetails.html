@@ -66,7 +66,8 @@ Add new student
 {% if stud %}
 <form action="/mark_attendence/{{name}}/{{date}}" method='POST'>
 {% csrf_token %} 
-		<table style="border:1px solid black;width:100%;border-collapse:collapse;">
+		<table id="table" style="border:1px solid black;width:100%;border-collapse:collapse;">
+			<tbody id="tbody">
 			<tr>
 				<th style="border:1px solid;padding:2px;font-weight:bolder">S.NO</th>
 				<th style="border:1px solid;padding:2px;font-weight:bolder">Name</th>
@@ -103,6 +104,7 @@ Add new student
 				{% endif %}
 			</tr>
 		{% endfor %}
+	</tbody>
 		</table>
 		{% if show != 'show' %}
 		<input type="submit" name="" class="add-btn" style="margin-top:20px;margin-bottom:50px">
